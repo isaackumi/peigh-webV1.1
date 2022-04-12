@@ -1,4 +1,5 @@
 <!-- BEGIN: Vendor JS-->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 <script src="{{ asset(mix('vendors/js/vendors.min.js')) }}"></script>
 <!-- BEGIN Vendor JS-->
 <!-- BEGIN: Page Vendor JS-->
@@ -17,5 +18,7 @@
 @endif
 <!-- END: Theme JS-->
 <!-- BEGIN: Page JS-->
+@livewireScripts
 @yield('page-script')
 <!-- END: Page JS-->
+

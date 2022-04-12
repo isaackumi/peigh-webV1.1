@@ -15,6 +15,11 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChartsController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeDetailController;
+use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\PayslipController;
+use App\Http\Controllers\LoanRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +32,17 @@ use App\Http\Controllers\ChartsController;
 |
 */
 
+
+
+// ########################## Livewire Routes #################
+// Route::view();
+Route::get('company', \App\Http\Livewire\App\CompanyComponent::class)->name('company.index');
+Route::get('company/{company}', \App\Http\Livewire\Company\CompanyShow::class)->name('company.show');
+
+Route::get('/payslip/new/add',\App\Http\Livewire\Payslip\PayslipCreate::class)->name('payslip.create');
+
+//  ########################## Livewire Routes #################
+
 // Main Page Route
 Route::get('/', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
 
@@ -36,15 +52,85 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('home-2', [DashboardController::class, 'dashboardAnalytics'])->name('dashboard-home2');
     Route::get('home', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-home');
 });
+
+
+
 /* Route Dashboards */
+
+// ========= COMPANIES ============ 
+
+// company
+
+
+
+
+// Route::get('company', [CompanyController::class, 'index'])->name('company.index');
+Route::post('company', [CompanyController::class, 'store'])->name('company.store');
+// Route::get('company/{id}', [CompanyController::class, 'show'])->name('company.show');
+Route::get('company/edit/{id}', [CompanyController::class, 'edit'])->name('company.edit');
+Route::post('company/update/{id}', [CompanyController::class, 'update'])->name('company.update');
+Route::get('company/destroy/{id}', [CompanyController::class, 'destroy'])->name('company.destroy');
+Route::get('company/new/add', [CompanyController::class, 'create'])->name('company.createnew');
+
+
+
+Route::get('employee', [EmployeeDetailController::class, 'index'])->name('employee.index');
+Route::post('employee', [EmployeeDetailController::class, 'store'])->name('employee.store');
+Route::get('employee/{id}', [EmployeeDetailController::class, 'show'])->name('employee.show');
+Route::get('employee/destroy/{id}', [EmployeeDetailController::class, 'destroy'])->name('employee.destroy');
+Route::get('employee/edit/{id}', [EmployeeDetailController::class, 'edit'])->name('employee.edit');
+Route::post('employee/update/{id}', [EmployeeDetailController::class, 'update'])->name('employee.update');
+Route::get( '/employee/new/add', [EmployeeDetailController::class, 'create'])->name('employee.create');
+// Route::get('/employee/data/{id}', [EmployeeDetailController::class, 'fetchEmployee']);
+Route::get('/employee/search/{id}', [EmployeeDetailController::class, 'fetchEmployee']);
+// Route::post('company', [CompanyController::class, 'store'])->name('company.store');
+// Route::get('company/{id}', [CompanyController::class, 'show'])->name('company.show');
+// Route::get('company/edit/{id}', [CompanyController::class, 'edit'])->name('company.edit');
+// Route::post('company/update/{id}', [CompanyController::class, 'update'])->name('company.update');
+// Route::get('company/destroy/{id}', [CompanyController::class, 'destroy'])->name('company.destroy');
+
+
+// =========== END ===================
+
+Route::get('workers', [EmployeeDetailController::class, 'index'])->name('workers.index');
+Route::get('payroll', [PayrollController::class, 'index'])->name('payroll.index');
+Route::get('payroll/create', [PayrollController::class, 'create'])->name('payroll.create');
+
+
+
+// PAYSLIP
+Route::get('payslip', [PayslipController::class, 'index'])->name('payslip.index');
+Route::post('payslip', [PayslipController::class, 'store'])->name('payslip.store');
+Route::get('payslip/{id}', [PayslipController::class, 'show'])->name('payslip.show');
+Route::get('payslip/destroy/{id}', [PayslipController::class, 'destroy'])->name('payslip.destroy');
+Route::get('payslip/edit/{id}', [PayslipController::class, 'edit'])->name('payslip.edit');
+Route::post('payslip/update/{id}', [PayslipController::class, 'update'])->name('payslip.update');
+// Route::get('/payslip/new/add', [PayslipController::class, 'create'])->name('payslip.create');
+
+// Loan Request
+Route::get('loan-request', [LoanRequestController::class, 'index'])->name('loan-request.index');
+Route::post('loan-request', [LoanRequestController::class, 'store'])->name('loan-request.store');
+Route::get('loan-request/{id}', [LoanRequestController::class, 'destroy'])->name('loan-request.destroy');
+Route::get('loan-request/edit/{id}', [LoanRequestController::class, 'edit'])->name('loan-request.edit');
+Route::post('loan-request/update/{id}', [LoanRequestController::class, 'update'])->name('loan-request.update');
+Route::get('/loan-request/new/add', [LoanRequestController::class, 'create'])->name('loan-request.create');
+
+
 
 /* Route Apps */
 Route::group(['prefix' => 'app'], function () {
-    Route::get('workers', [AppsController::class, 'emailApp'])->name('app-workers');
-    Route::get('payroll', [AppsController::class, 'chatApp'])->name('app-payroll');
+    // Route::get('workers', [AppsController::class, 'emailApp'])->name('app-workers');
+    Route::get('workers', [EmployeeDetailController::class, 'emailApp'])->name('app-workers');
+    // Route::get('payroll', [AppsController::class, 'chatApp'])->name('app-payroll');
     Route::get('report', [AppsController::class, 'todoApp'])->name('app-report');
     Route::get('fillings', [AppsController::class, 'calendarApp'])->name('app-fillings');
-    Route::get('hr', [AppsController::class, 'kanbanApp'])->name('app-hr');
+    Route::get('hr', [AppsController::class, 'HRApp'])->name('app-hr');
+    Route::get('loan-request', [AppsController::class, 'loanRequest'])->name('app-loan-request');
+    Route::get('earned-salary', [AppsController::class, 'earnedSalary'])->name('app-earned-salary');
+
+
+
+    // Route::get('', [AppsController::class, 'earnedSalary'])->name('app-earned-salary');
 
 
 

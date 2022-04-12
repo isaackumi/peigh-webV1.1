@@ -18,7 +18,26 @@
           "name": "Home",
           "icon": "circle",
           "slug": "dashboard-home"
-        }
+        },
+        {
+      "url": "dashboard/home-2",
+      "name": "Earned Salary Analytics",
+      "icon": "message-square",
+      "slug": "app-earned-salary"
+    },
+    {
+      "url": "dashboard/home-2",
+      "name": "Report",
+      "icon": "check-square",
+      "slug": "app-report"
+    },
+    {
+      "url": "dashboard/home-2",
+      "name": "Health Coverage",
+      "icon": "check-square",
+      "slug": "app-report"
+    }
+   
       ]
     },
 
@@ -27,43 +46,47 @@
       "slug": ""
     },
     {
-      "url": "app/workers",
+      "url": "/workers",
       "name": "Workers",
       "icon": "users",
       "slug": "app-workers"
     },
     {
-      "url": "app/payroll",
-      "name": "Payroll",
-      "icon": "message-square",
+      "url": "/payslip",
+      "name": "Payslip",
+      "icon": "clipboard",
       "slug": "app-payroll"
     },
-    {
-      "url": "app/report",
-      "name": "Report",
-      "icon": "check-square",
-      "slug": "app-report"
+   {
+      "url": "/payroll",
+      "name": "Payroll",
+      "icon": "credit-card",
+      "slug": "app-payroll"
     },
     {
       "url": "app/fillings",
       "name": "Fillings",
-      "icon": "calendar",
+      "icon": "file",
       "slug": "app-fillings"
     },
     {
       "url": "app/hr",
       "name": "HR",
-      "icon": "grid",
+      "icon": "user",
       "slug": "app-hr"
-    }
-     
-    
-    
-    
-    
-   
-    
-   
+    },
+     {
+      "url": "/loan-request",
+      "name": "Loan Request",
+      "icon": "refresh-cw",
+      "slug": "app-loan-request"
+    },
+    {
+      "url": "company",
+      "name": "Company",
+      "icon": "maximize",
+      "slug": "app-companies"
+    } 
    
   ]
 }

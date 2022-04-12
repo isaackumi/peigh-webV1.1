@@ -26,17 +26,75 @@
         <table class="datatables-basic table">
           <thead>
             <tr>
-              <th></th>
-              <th></th>
-              <th>id</th>
+              
+              
               <th>Name</th>
-              <th>Email</th>
-              <th>Date</th>
-              <th>Salary</th>
+              <th>Gross Salary</th>
+              <th>Deductions</th>
+              <th>Salary status</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
+          <tbody>
+ <tr>
+                
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+                <td>
+                  <span>
+                 <a href = "#"
+                    data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="Edit"
+                  class="btn btn-outline-primary"><i data-feather='edit'></i></a> 
+                 <a href = "#"
+                  data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Delete"
+                 class="btn btn-outline-danger"><i data-feather='trash-2'></i></a> 
+                 {{-- <a class="btn btn-info">More</a> --}}
+                 <a href = "#"
+                  data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="View"
+                class="btn btn-outline-info"><i data-feather='eye'></i></a>
+                 </span>
+                </td>
+                
+            </tr>
+            <tr>
+                
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+                <td>
+                  <span>
+                 <a href = "#"
+                    data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="Edit"
+                  class="btn btn-outline-primary"><i data-feather='edit'></i></a> 
+                 <a href = "#"
+                  data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Delete"
+                 class="btn btn-outline-danger"><i data-feather='trash-2'></i></a> 
+                 {{-- <a class="btn btn-info">More</a> --}}
+                 <a href = "#"
+                  data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="View"
+                class="btn btn-outline-info"><i data-feather='eye'></i></a>
+                 </span>
+                </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
@@ -237,5 +295,5 @@
 @endsection
 @section('page-script')
   {{-- Page js files --}}
-  <script src="{{ asset(mix('js/scripts/tables/table-datatables-basic.js')) }}"></script>
+  {{-- <script src="{{ asset(mix('js/scripts/tables/table-datatables-basic.js')) }}"></script> --}}
 @endsection

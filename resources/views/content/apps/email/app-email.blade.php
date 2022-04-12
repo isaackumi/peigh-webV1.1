@@ -3,6 +3,11 @@
 
 @section('title', 'Workers')
 
+
+
+
+
+
 @section('vendor-style')
   <!-- vendor css files -->
 
@@ -32,6 +37,25 @@
 @endsection
 
 @section('content')
+
+
+{{-- <div class="row">
+  <div class="col-12">
+    <div class="alert alert-primary" role="alert">
+      <div class="alert-body">
+        <strong>Info:</strong> This layout can be useful for getting started with empty content section. Please check
+        the&nbsp;<a
+          class="text-primary"
+          href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation/documentation-layout-empty.html"
+          target="_blank"
+          >Layout empty documentation</a
+        >&nbsp; for more details.
+      </div>
+    </div>
+  </div>
+</div> --}}
+
+
 <section class="invoice-list-wrapper">
   <div class="card">
     <div class="card-datatable table-responsive">
@@ -53,6 +77,7 @@
     </div>
   </div>
 </section>
+
 @endsection
 
 @section('vendor-script')

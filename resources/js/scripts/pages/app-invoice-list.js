@@ -7,7 +7,6 @@
     Author: PIXINVENT
     Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
-
 $(function () {
   'use strict';
 
@@ -240,7 +239,7 @@ $(function () {
       language: {
         sLengthMenu: 'Show _MENU_',
         search: 'Search',
-        searchPlaceholder: 'Search Invoice',
+        searchPlaceholder: 'Search',
         paginate: {
           // remove previous & next text from pagination
           previous: '&nbsp;',
@@ -250,12 +249,13 @@ $(function () {
       // Buttons with Dropdown
       buttons: [
         {
-          text: 'Add Record',
+          text: '+ Add Record',
           className: 'btn btn-primary btn-add-record ms-2',
           action: function (e, dt, button, config) {
             window.location = invoiceAdd;
           }
         }
+        
       ],
       // For responsive popup
       responsive: {
@@ -297,7 +297,7 @@ $(function () {
           .every(function () {
             var column = this;
             var select = $(
-              '<select id="UserRole" class="form-select ms-50 text-capitalize"><option value=""> Select Status </option></select>'
+              '<select id="UserRole" class="form-select ms-50 text-capitalize"><option value=""> Select Month </option></select>'
             )
               .appendTo('.invoice_status')
               .on('change', function () {

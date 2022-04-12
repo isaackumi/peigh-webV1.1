@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="{{ asset(mix('css/base/themes/dark-layout.css')) }}" />
 <link rel="stylesheet" href="{{ asset(mix('css/base/themes/bordered-layout.css')) }}" />
 <link rel="stylesheet" href="{{ asset(mix('css/base/themes/semi-dark-layout.css')) }}" />
-
+@livewireStyles
 @php $configData = Helper::applClasses(); @endphp
 
 <!-- BEGIN: Page CSS-->

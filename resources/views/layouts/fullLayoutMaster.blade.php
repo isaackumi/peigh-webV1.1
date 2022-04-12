@@ -28,6 +28,7 @@ data-textdirection="{{ env('MIX_CONTENT_DIRECTION') === 'rtl' ? 'rtl' : 'ltr' }}
 
   {{-- Include core + vendor Styles --}}
   @include('panels/styles')
+   @livewireStyles
 </head>
 
 
@@ -56,6 +57,7 @@ data-asset-path="{{ asset('/')}}">
 
   {{-- include default scripts --}}
   @include('panels/scripts')
+ 
 
   <script type="text/javascript">
     $(window).on('load', function() {
@@ -67,7 +69,7 @@ data-asset-path="{{ asset('/')}}">
       }
     })
   </script>
-
+  @livewireScripts
 </body>
 
 </html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class AppsController extends Controller
 {
@@ -94,12 +95,16 @@ class AppsController extends Controller
     {
         $pageConfigs = [
             'pageHeader' => false,
-            'contentLayout' => "content-left-sidebar",
-            'pageClass' => 'chat-application',
+            // 'contentLayout' => "content-left-sidebar",
+            // 'pageClass' => 'chat-application',
         ];
+
+        // $users = Http::get('https://api-fastpay.herokuapp.com/api/users');
+        // return htmlspecialchars($users);
 
         return view('/content/apps/chat/app-chat', [
             'pageConfigs' => $pageConfigs
+            
         ]);
     }
 
@@ -120,8 +125,8 @@ class AppsController extends Controller
     {
         $pageConfigs = [
             'pageHeader' => false,
-            'contentLayout' => "content-left-sidebar",
-            'pageClass' => 'email-application',
+            // 'contentLayout' => "content-left-sidebar",
+            // 'pageClass' => 'email-application',
         ];
 
         return view('/content/apps/email/app-email', ['pageConfigs' => $pageConfigs]);
@@ -131,8 +136,8 @@ class AppsController extends Controller
     {
         $pageConfigs = [
             'pageHeader' => false,
-            'contentLayout' => "content-left-sidebar",
-            'pageClass' => 'todo-application',
+            // 'contentLayout' => "content-left-sidebar",
+            // 'pageClass' => 'todo-application',
         ];
 
         return view('/content/apps/todo/app-todo', [
@@ -144,8 +149,8 @@ class AppsController extends Controller
     {
         $pageConfigs = [
             'pageHeader' => false,
-            'contentLayout' => "content-left-sidebar",
-            'pageClass' => 'file-manager-application',
+            // 'contentLayout' => "content-left-sidebar",
+            // 'pageClass' => 'file-manager-application',
         ];
 
         return view('/content/apps/fileManager/app-file-manager', ['pageConfigs' => $pageConfigs]);
@@ -168,14 +173,35 @@ class AppsController extends Controller
     }
 
     // Kanban App
-    public function kanbanApp()
+    public function HRApp()
     {
         $pageConfigs = [
             'pageHeader' => false,
-            'pageClass' => 'kanban-application',
+            // 'pageClass' => 'kanban-application',
         ];
 
-        return view('/content/apps/kanban/app-kanban', ['pageConfigs' => $pageConfigs]);
+        return view('/content/apps/email/app-email', ['pageConfigs' => $pageConfigs]);
+    }
+
+    public function loanRequest()
+    {
+        $pageConfigs = [
+                'pageHeader' => false,
+                // 'pageClass' => 'kanban-application',
+            ];
+
+        return view('/content/apps/email/app-email', ['pageConfigs' => $pageConfigs]);
+    }
+    // earnedSalary
+
+    public function earnedSalary()
+    {
+        $pageConfigs = [
+            'pageHeader' => false,
+            // 'pageClass' => 'kanban-application',
+        ];
+
+        return view('/content/apps/email/app-email', ['pageConfigs' => $pageConfigs]);
     }
 
     // Ecommerce Shop

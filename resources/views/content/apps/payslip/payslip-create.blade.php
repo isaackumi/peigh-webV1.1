@@ -92,6 +92,70 @@
     </div>
   </div>
 </section>
+
+
+
+<section id="basic-datatable">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <table class="datatables-basic table">
+          <thead>
+            <tr>
+              
+              
+              <th>ID</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Gross Salary</th>
+              
+              <th>Deductions</th>
+              <th>EWA</th>
+              <th>Net Salary</th>
+              <th>Salary status</th>
+              {{-- <th>isActive</th> --}}
+
+
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            
+
+
+          
+<tr>
+                
+                <td id="table_id">PS001</td>
+                <td id="table_name">K. Manu</td>
+                <td id="table_role">Marketing</td>
+                <td id="table_gross_salary">$3,000</td>
+                <td id="table_deduction">$500</td>
+                <td id="table_ewa">$500 </td>
+                <td id="table_net_salary">78</td>
+                <td>
+                  <span>
+                
+                 <a href = "/payslip/1"
+                  data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="View"
+                class=""><i data-feather='eye'></i></a>
+                 </span>
+                </td>
+                
+            </tr>
+            
+ 
+   
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+ 
+</section>
 <!-- Input Mask start -->
 <section id="input-mask-wrapper">
   <div class="row">
@@ -381,7 +445,7 @@ $.ajaxSetup({
           type: 3
   })
           }else{
-          console.log(data);
+          // console.log(data);
           // console.log(data['gross_salary']);
           var gross_salary = data.employee.gross_salary;
           var basic_salary = data.employee.basic_salary;
@@ -408,6 +472,9 @@ $.ajaxSetup({
           $("#company_id").val(company_id);
           $("#employee_name").html(employee_name);
           $("#payslip_reference").val(payslip_ref);
+
+          // populate table
+          $("#table_id").val(employee_id);
 
           
         }},

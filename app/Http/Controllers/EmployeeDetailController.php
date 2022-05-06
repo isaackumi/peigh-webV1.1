@@ -58,6 +58,10 @@ class EmployeeDetailController extends Controller
 
         return back();
     }
+// compute net income, PAYE income tax and SNNIT deduction in Ghana
+// Take 
+
+    
 
     /**
      * Display the specified resource.

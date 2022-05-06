@@ -95,67 +95,6 @@
 
 
 
-<section id="basic-datatable">
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <table class="datatables-basic table">
-          <thead>
-            <tr>
-              
-              
-              <th>ID</th>
-              <th>Name</th>
-              <th>Role</th>
-              <th>Gross Salary</th>
-              
-              <th>Deductions</th>
-              <th>EWA</th>
-              <th>Net Salary</th>
-              <th>Salary status</th>
-              {{-- <th>isActive</th> --}}
-
-
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            
-
-
-          
-<tr>
-                
-                <td id="table_id">PS001</td>
-                <td id="table_name">K. Manu</td>
-                <td id="table_role">Marketing</td>
-                <td id="table_gross_salary">$3,000</td>
-                <td id="table_deduction">$500</td>
-                <td id="table_ewa">$500 </td>
-                <td id="table_net_salary">78</td>
-                <td>
-                  <span>
-                
-                 <a href = "/payslip/1"
-                  data-bs-toggle="tooltip"
-              data-bs-placement="top"
-              title="View"
-                class=""><i data-feather='eye'></i></a>
-                 </span>
-                </td>
-                
-            </tr>
-            
- 
-   
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
- 
-</section>
 <!-- Input Mask start -->
 <section id="input-mask-wrapper">
   <div class="row">
@@ -445,7 +384,7 @@ $.ajaxSetup({
           type: 3
   })
           }else{
-          // console.log(data);
+          console.log(data);
           // console.log(data['gross_salary']);
           var gross_salary = data.employee.gross_salary;
           var basic_salary = data.employee.basic_salary;
@@ -456,10 +395,14 @@ $.ajaxSetup({
           var paye = data.employee.paye;
           var employee_department = data.employee.department_id;
           var payslip_ref = $("#month").val();
-          var ssnit_contribution = 2300;
+          
+          
+          // var ssnit_contribution = ssnit_contribution(gross_salary);
+          var ssnit_contribution = ssnitContribution(gross_salary);
           var paye = 50;
           var ewa = 70;
           var net_salary = netSalaryCalculator(gross_salary,basic_salary,ewa);
+       
 
 
 
@@ -468,9 +411,9 @@ $.ajaxSetup({
           $("#ewa").val(ewa);
           $("#ssnit_contribution").val(ssnit_contribution);
           $("#paye").val(paye);
-          $("#employee_id").html(`EMP000${employee_id}`);
+          // $("#employee_id").html(`EMP000${employee_id}`);
           $("#company_id").val(company_id);
-          $("#employee_name").html(employee_name);
+          // $("#employee_name").html(employee_name);
           $("#payslip_reference").val(payslip_ref);
 
           // populate table
@@ -482,7 +425,7 @@ $.ajaxSetup({
           console.log(res);
           new Notify({
           status: 'error',
-          text: 'Invalid Employee ID',
+          text: 'Invalid Employee ID supplied!',
           autoclose: true,
           timeout: 3000,
           type: 3
@@ -490,12 +433,42 @@ $.ajaxSetup({
         }
       })
     }
+  
+
+// calculate net salary
+// write a function to calculate the net salary
+
+
+function netSalaryCalculator(gross_salary,basic_salary,ewa){
+  return gross_salary - (basic_salary + ewa);
+}
+
+function ssnitContribution(gross_salary){
+  var num = (gross_salary/12)*(0.055)
+  return num.toFixed(2)
+  // return Number(gross_salary) + 1
+}
+
+function taxPayable(gross_salary){
+  res = (gross_salary/12) - ssnit_contribution(gross_salary)
+
+  // TO DO: compute taxable income
+  if (res <= 365){
+    alert(res)
+  }
+    
+}
 
 
 
-    function netSalaryCalculator(gross,basic,ewa){
-        return gross - basic - ewa;
-    }
+// calculate PAYE per month 
+function payeCalculator(net_salary){
+  var paye = net_salary * 0.2;
+  return paye;
+}
+    // function netSalaryCalculator(gross,basic,ewa){
+    //     return gross - basic - ewa;
+    // }
 
 
     function ewaCalculator(){}

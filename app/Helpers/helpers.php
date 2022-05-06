@@ -11,16 +11,18 @@ class Helper
     {
         // Demo
         $fullURL = request()->fullurl();
-        if (App()->environment() === 'production') {
-            for ($i = 1; $i < 7; $i++) {
-                $contains = Str::contains($fullURL, 'demo-' . $i);
-                if ($contains === true) {
-                    $data = config('custom.' . 'demo-' . $i);
-                }
-            }
-        } else {
-            $data = config('custom.custom');
-        }
+        // if (App()->environment() === 'production') {
+        //     for ($i = 1; $i < 7; $i++) {
+        //         $contains = Str::contains($fullURL, 'demo-' . $i);
+        //         if ($contains === true) {
+        //             $data = config('custom.' . 'demo-' . $i);
+        //         }
+        //     }
+        // } else {
+        //     $data = config('custom.custom');
+        // }
+
+        $data = config('custom.custom');
 
         // default data array
         $DefaultData = [
